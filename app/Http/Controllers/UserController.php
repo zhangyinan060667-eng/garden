@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\admin_login;
-use App\Models\services;
+use App\Models\events;
 use App\Models\about;
-use App\Models\slider;
 use App\Models\client;
 use App\Models\blog;
 use App\Models\photos;
@@ -49,8 +48,7 @@ class UserController extends Controller
     // Dashboard
     public function dashboard(Request $req)
     {
-        $slider = slider::count();
-        $services = services::count();
+        $events = events::count();
         $client = client::count();
         $blog = blog::count();
         $about = about::count();
@@ -58,128 +56,57 @@ class UserController extends Controller
         $contact_us = contact_us::count();
         $notification = contact_us::where('status',1)->count();
 
-        return view('admin/dashboard',['slider'=>$slider,'services'=>$services,'client'=>$client,'blog'=>$blog,'about'=>$about,'photos'=>$photos,'contact_us'=>$contact_us,'notification'=>$notification]);
+        return view('admin/dashboard',['events'=>$events,'client'=>$client,'blog'=>$blog,'about'=>$about,'photos'=>$photos,'contact_us'=>$contact_us,'notification'=>$notification]);
     }
 
-    // Slider
-    public function add_slider(Request $req)
+    // Events
+    public function add_events(Request $req)
     {
-        if($req->submit_slider)
+        if($req->submit_events)
         {
             $title = $req->title;
-            $details = $req->details;
-            date_default_timezone_set('Asia/Kolkata');
-            $image = date('dmY_His_').$req->file('image')->getClientOriginalName();
-            $req->image->move(public_path('images'),$image);
+            $details = $req->details ?? '';
+            $event_date = $req->event_date;
 
-            $sql_insert = array('title'=>$title,'details'=>$details,'image'=>$image);
-            slider::create($sql_insert);
+            $sql_insert = array('title'=>$title,'details'=>$details,'event_date'=>$event_date);
+            events::create($sql_insert);
         }
-        return view('admin/add-slider');
+        return view('admin/add-events');
     }
 
-    public function view_slider(Request $req)
+    public function view_events(Request $req)
     {
-        $arr = slider::all();
+        $arr = events::orderBy('event_date','desc')->get();
 
-        return view('admin/view-slider',['arr'=>$arr]);
+        return view('admin/view-events',['arr'=>$arr]);
     }
 
-    public function delete_slider(Request $req,$id)
+    public function delete_events(Request $req,$id)
     {
-        $image = slider::where('id',$id)->first()->image;
+        events::where('id',$id)->delete();
 
-        unlink('images/'.$image);
-
-        slider::where('id',$id)->delete();
-
-        return redirect('/admin/view-slider');
+        return redirect('/admin/view-events');
     }
 
-    public function edit_slider(Request $req,$id)
+    public function edit_events(Request $req,$id)
     {
-        $arr = slider::where('id',$id)->get();
+        $arr = events::where('id',$id)->get();
 
-        return view('admin/edit-slider',['arr'=>$arr]);
+        return view('admin/edit-events',['arr'=>$arr]);
     }
 
-    public function submit_edit_slider(Request $req,$id)
+    public function submit_edit_event(Request $req,$id)
     {
-        if($req->edit_slider)
+        if($req->edit_events)
         {
             $title = $req->title;
-            $details = $req->details;
-            $image_chk = $req->file('image');
+            $details = $req->details ?? '';
+            $event_date = $req->event_date;
 
-            if($image_chk==null)
-            {
-                $image = slider::where('id',$id)->first()->image;
-            }
-            else
-            {
-                $image_delete = slider::where('id',$id)->first()->image;
-                unlink('images/'.$image_delete);
+            $sql_update = array('title'=>$title,'details'=>$details,'event_date'=>$event_date);
+            events::where('id',$id)->update($sql_update);
 
-                date_default_timezone_set('Asia/Kolkata');
-                $image = date('dmY_His_').$req->file('image')->getClientOriginalName();
-
-                $req->image->move(public_path('images'),$image);
-            }
-
-            $sql_update = array('title'=>$title,'details'=>$details,'image'=>$image);
-            slider::where('id',$id)->update($sql_update);
-
-            return redirect('/admin/view-slider');
-        }
-    }
-
-
-    // Services
-    public function add_services(Request $req)
-    {
-        if($req->submit_services)
-        {
-            $title = $req->title;
-            $details = $req->details;
-
-            $sql_insert = array('title'=>$title,'details'=>$details);
-            services::create($sql_insert);
-        }
-        return view('admin/add-services');
-    }
-
-    public function view_services(Request $req)
-    {
-        $arr = services::all();
-
-        return view('admin/view-services',['arr'=>$arr]);
-    }
-
-    public function delete_services(Request $req,$id)
-    {
-        $arr = services::where('id',$id)->delete();
-
-        return redirect('/admin/view-services');
-    }
-
-    public function edit_services(Request $req,$id)
-    {
-        $arr = services::where('id',$id)->get();
-
-        return view('admin/edit-services',['arr'=>$arr]);
-    }
-
-    public function submit_edit_service(Request $req,$id)
-    {
-        if($req->edit_services)
-        {
-            $title = $req->title;
-            $details = $req->details;
-
-            $sql_update = array('title'=>$title,'details'=>$details);
-            services::where('id',$id)->update($sql_update);
-
-            return redirect('/admin/view-services');
+            return redirect('/admin/view-events');
         }
     }
 
@@ -252,7 +179,7 @@ class UserController extends Controller
         }
     }
 
-    // Blog
+    // Gallery
     public function add_blog(Request $req)
     {
         if($req->submit_blog)
@@ -286,7 +213,7 @@ class UserController extends Controller
 
         blog::where('id',$id)->delete();
 
-        return redirect('/admin/view-blog');
+        return redirect('/admin/view-gallery');
     }
 
     public function edit_blog(Request $req,$id)
@@ -323,7 +250,7 @@ class UserController extends Controller
             $sql_update = array('title'=>$title,'short_details'=>$s_details,'full_details'=>$f_details,'image'=>$image);
             blog::where('id',$id)->update($sql_update);
 
-            return redirect('/admin/view-blog');
+            return redirect('/admin/view-gallery');
         }
     }
 
@@ -381,18 +308,41 @@ class UserController extends Controller
     // Photos
      public function add_photos(Request $req)
     {
-        if($req->submit_photos)
+        if ($req->isMethod('post'))
         {
-            $title=$req->title;
-            $details=$req->details;
-            $type=$req->type;
-            date_default_timezone_set('Asia/Kolkata');
-            $image=date('dmY_His_').$req->file('image')->getClientOriginalName();
+            \Log::info('add_photos POST', ['method' => $req->method(), 'has_file' => $req->hasFile('image'), 'submit_photos' => $req->submit_photos, 'all_files' => $req->allFiles(), 'php_files' => $_FILES]);
+            try {
+                $title=$req->title;
+                $details=$req->details;
+                $type=$req->type;
+                date_default_timezone_set('Asia/Kolkata');
+                
+                if (!$req->hasFile('image')) {
+                    $error_msg = 'No file uploaded. Please choose a file or verify upload_max_filesize is large enough.';
+                    if (isset($_FILES['image']['error']) && $_FILES['image']['error'] === 1) {
+                        $error_msg = 'Upload failed: file exceeds server upload_max_filesize limit.';
+                    }
+                    return redirect('/admin/add-photos')->with('error', $error_msg);
+                }
 
-            $req->image->move(public_path('images'),$image);
+                $file = $req->file('image');
+                $image=date('dmY_His_').$file->getClientOriginalName();
 
-            $sql_insert = array('title'=>$title,'details'=>$details,'type'=>$type,'image'=>$image);
-            photos::create($sql_insert);
+                $file->move(public_path('images'),$image);
+
+                $sql_insert = array('title'=>$title,'details'=>$details,'type'=>$type,'image'=>$image);
+                $photo = photos::create($sql_insert);
+                \Log::info('photo created', ['id' => $photo->id ?? null, 'title' => $title, 'image' => $image]);
+                
+                return redirect('/admin/view-photos')->with('success', 'Photo added successfully.');
+            } catch (\Exception $e) {
+                $error_msg = $e->getMessage();
+                if (strpos($error_msg, 'exceeds your upload_max_filesize') !== false) {
+                    $error_msg = 'File size exceeds maximum upload limit (100MB). Please use a smaller file.';
+                }
+                \Log::error('add_photos error', ['message' => $error_msg]);
+                return redirect('/admin/add-photos')->with('error', $error_msg);
+            }
         }
         return view('admin/add-photos');
     }
@@ -472,20 +422,19 @@ class UserController extends Controller
     // functions for Frond-end pannel
     public function index(Request $req)
     {
-        $slider_i = slider::all();
-        $services_i = services::all();
+        $events_i = events::orderBy('event_date','desc')->limit(4)->get();
         $photos_i = photos::all();
         $about_i = about::all();
         $blog_i = blog::all();
 
-        return view('index',['slider_i'=>$slider_i,'services_i'=>$services_i,'photos_i'=>$photos_i,'about_i'=>$about_i,'blog_i'=>$blog_i]);
+        return view('index',['events_i'=>$events_i,'photos_i'=>$photos_i,'about_i'=>$about_i,'blog_i'=>$blog_i]);
     }
 
-    public function services(Request $req)
+    public function events(Request $req)
     {
-        $arr = services::all();
+        $arr = events::orderBy('event_date','desc')->get();
 
-        return view('services',['arr'=>$arr]);
+        return view('events',['arr'=>$arr]);
     }
 
     public function clients(Request $req)
@@ -584,7 +533,7 @@ class UserController extends Controller
         {
             $search = $req->search_text;
 
-            return redirect()->to('/blog-single?search_text='.$search);
+            return redirect()->to('/gallery-single?search_text='.$search);
         }
         else if($req->search_text)
         {

@@ -1,6 +1,6 @@
 @include('header')
 
-				<section class="page-heading wow fadeIn" data-wow-duration="1.5s" style="background-image: url(files/images/01-heading.jpg)">
+				<section class="page-heading wow fadeIn" data-wow-duration="1.5s">
 					<div class="container">
 						<div class="page-name">
 							<h1>Our Clients</h1>

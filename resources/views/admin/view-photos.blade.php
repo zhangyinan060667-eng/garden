@@ -27,9 +27,16 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">View / Delete Photos</h3>
+                <a href="/admin/add-photos" class="btn btn-primary float-right">Add New Photos</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+                @if(session('success'))
+                  <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
+                @if(session('error'))
+                  <div class="alert alert-danger">{{ session('error') }}</div>
+                @endif
                 <table id="example2" class="table table-bordered table-hover">
                   <thead valign="center">
                   <tr>
@@ -37,7 +44,8 @@
                     <th>Details of Photo</th>
                     <th>Type of Photo</th>
                     <th>Image Preview</th>
-                    <th>Delete Data</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                   </tr>
                   </thead>
 
@@ -47,16 +55,12 @@
                     <td>{{$photos->details}}</td>             
                     <td>{{$photos->type}}</td>             
                     <td align="center">
-                      <div style="width: 250px; height: 200px;"><img src="{{asset('images/'.$photos->image)}}" style="height: 100%; width: 100%; object-fit: cover;"></td></div>  
-                    <td><a href="/admin/edit-photos/{{$photos->id}}" class="btn btn-primary">Edit</button></td>
-                    <td><a href="/admin/view-photos/{{$photos->id}}" class="btn btn-primary">Delete</button></td>
+                      <div style="width: 250px; height: 200px;"><img src="{{asset('images/'.$photos->image)}}" style="height: 100%; width: 100%; object-fit: cover;"></div></td>
+                    <td><a href="/admin/edit-photos/{{$photos->id}}" class="btn btn-primary">Edit</a></td>
+                    <td><a href="/admin/view-photos/{{$photos->id}}" class="btn btn-primary">Delete</a></td>
                   </tr>
                   @endforeach
 
-                  <tr>
-                   <td height="50" colspan="4" align="center"><a href="/admin/add-photos" class="btn btn-primary">Add New Photos</a></td>
-                  </tr>
-                  
                 </table>
               </div>
               <!-- /.card-body -->

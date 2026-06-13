@@ -249,11 +249,7 @@
 		$('.fullwidthbanner').revolution({
         	delay:6000,
         	startwidth:1170,
-        	startheight:680,
-        	onHoverStop: "off",
-        	hideTimerBar: "on",
-            thumbWidth: 100,
-            thumbHeight: 50,
+         startheight:520,
             thumbAmount: 3,
             hideThumbs: 200,
             navigationType: "bullet",

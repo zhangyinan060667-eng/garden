@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Add New Blog</h1>
+            <h1>Add New Gallery</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -28,7 +28,7 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Add New Blog</h3>
+                <h3 class="card-title">Add New Gallery</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -36,19 +36,19 @@
                 @csrf
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Title of New Blog</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Title of New Blog" name="title" maxlength="70" required>
+                    <label for="exampleInputEmail1">Title of New Gallery</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Title of New Gallery" name="title" maxlength="70" required>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Short Details of New Blog</label>
-                    <textarea type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Short Details of New Blog" name="s_details" maxlength="250" required></textarea>
+                    <label for="exampleInputPassword1">Short Details of New Gallery</label>
+                    <textarea type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Short Details of New Gallery" name="s_details" maxlength="250" required></textarea>
                   </div>
                    <div class="form-group">
-                    <label for="exampleInputPassword1">Full Details of New Blog</label>
-                    <textarea rows="10" type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Full Details of New Blog" name="f_details" maxlength="1500" required></textarea>
+                    <label for="exampleInputPassword1">Full Details of New Gallery</label>
+                    <textarea rows="10" type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Full Details of New Gallery" name="f_details" maxlength="1500" required></textarea>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputFile">Add Image of New Blog</label>
+                    <label for="exampleInputFile">Add Image of New Gallery</label>
                     <div class="input-group">
                       <div class="custom-file">
                         <input type="file" class="custom-file-input" id="exampleInputFile" name="image" required>

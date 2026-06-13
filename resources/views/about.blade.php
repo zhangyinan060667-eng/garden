@@ -1,6 +1,6 @@
 @include('header')
 
-				<section class="page-heading wow fadeIn" data-wow-duration="1.5s" style="background-image: url(files/images/01-heading.jpg)">
+				<section class="page-heading wow fadeIn" data-wow-duration="1.5s">
 					<div class="container">
 						<div class="page-name">
 							<h1>About Us</h1>
@@ -11,7 +11,7 @@
 
 				<section class="call-to-action-1">
 					<div class="container">
-						<h4>Why people are Using Yom Template</h4>
+						<h4>Why people are using Gardening Club</h4>
 						<p class="col-md-10 col-md-offset-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat quod voluptate consequuntur ad quasi, dolores obcaecati ex aliquid, dolor provident accusamus omnis dolorum ipsam. Voluptatem ipsum expedita, corporis facilis laborum asperiores nostrum! Amet porro numquam ratione temporibus quia dolorem sint lorem voluptates quasi mollitia.</p>
 						<div class="buttons">
 							<div class="col-md-6 col-sm-6 col-xs-6">

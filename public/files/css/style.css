@@ -72,6 +72,11 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 400ms;
   background:url('../images/background-header.png');
 }
+@media (min-width: 992px) {
+  body {
+    padding-top: 85px;
+  }
+}
 @media (max-width: 991px) {
   .site-header {
     position: relative;
@@ -1283,6 +1288,22 @@ figcaption a:hover {
   margin-top: -75px;
   padding-bottom: 50px;
 }
+
+.page-heading-small .page-name {
+  margin-top: 0;
+  padding: 35px 0;
+}
+
+.page-heading-small .page-name h1 {
+  padding: 18px 55px 34px 55px;
+  font-size: 22px;
+  border-width: 6px;
+}
+
+.page-heading-small .page-name span {
+  margin-top: -45px;
+  padding-bottom: 25px;
+}
 h1,
 h2,
 h3,
@@ -1342,6 +1363,14 @@ h6 {
 .slider .tp-caption {
   visibility: hidden;
   opacity: 0;
+}
+.fullwidthbanner,
+.fullwidthbanner-container,
+.fullwidthbanner.tp-simpleresponsive,
+.fullwidthbanner .tp-revslider-mainul {
+  max-height: 520px !important;
+  height: auto !important;
+  overflow: hidden !important;
 }
 .tp-bullets {
   z-index: 1!important;
@@ -1998,6 +2027,39 @@ html[xmlns] .flexslider .slides {
 
 .services_edit{
   padding: 65px 0;
+}
+
+.gardening-club-home {
+  background: #ffffff;
+}
+
+.coming-up-home {
+  background: #ffd800;
+  border: 8px solid #49b203;
+  padding: 45px 0;
+}
+
+.coming-up-home .coming-up-heading {
+  display: inline-block;
+  background: #49b203;
+  padding: 10px 55px;
+  margin-bottom: 35px;
+}
+
+.coming-up-home .coming-up-heading h2 {
+  color: #ffd800;
+  font-weight: 700;
+}
+
+.coming-up-home .coming-up-heading .section-dec {
+  display: none;
+}
+
+.coming-up-home p {
+  color: #333333;
+  font-weight: 600;
+  padding-top: 0;
+  padding-bottom: 16px;
 }
 
 .edit-pagination{

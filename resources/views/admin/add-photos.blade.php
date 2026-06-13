@@ -35,8 +35,12 @@
               <form method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
-                  
-                  <div class="card-body">
+                  @if(session('success'))
+                    <div class="alert alert-success">{{ session('success') }}</div>
+                  @endif
+                  @if(session('error'))
+                    <div class="alert alert-danger">{{ session('error') }}</div>
+                  @endif
                   <div class="form-group">
                     <label for="exampleInputEmail1">Title of Image</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Title of New Photo" name="title" maxlength="20" required>
@@ -59,25 +63,21 @@
                     <!-- <input type="text" class="form-control" id="exampleInputPassword1" maxlength="50" placeholder="Enter Some Details of New Photo" name="details" maxlength="50" required> -->
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputFile">Add Photos</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile" name="image" required>
-                        <label class="custom-file-label" for="exampleInputFile">Choose image</label>
-                      </div>
-                    </div> 
+                    <label for="image">Add Photos</label>
+                    <input type="file" class="form-control" id="image" name="image" required>
                   </div>
  
                 </div>
                 <!-- /.card-body -->
-           
+
+                <!-- /.card-body -->
+
                 <div class="card-footer">
                   <input type="submit" class="btn btn-primary" name="submit_photos" value="Submit">
                 </div>
               </form>
             </div>
             <!-- /.card -->
-                </form>
               </div>
               <!-- /.card-body -->
             </div>

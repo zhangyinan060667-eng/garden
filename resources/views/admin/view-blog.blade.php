@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>View / Manage Data of Blogs</h1>
+            <h1>View / Manage Data of Gallery</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -26,16 +26,17 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">View/Manage data of Blogs</h3>
+                <h3 class="card-title">View/Manage data of Gallery</h3>
+                <a href="/admin/add-gallery" class="btn btn-primary float-right">Add Gallery</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>Titel of Blog</th>
-                    <th>Headline of Blog</th>
-                    <th>Details of Blog</th>
+                    <th>Titel of Gallery</th>
+                    <th>Headline of Gallery</th>
+                    <th>Details of Gallery</th>
                     <th>Image</th>
                     <th>Edit Data</th>
                     <th>Delete Data</th>
@@ -50,8 +51,8 @@
                     <td align="center">
                          <div style="width: 250px; height: 200px;"><img src="{{asset('images/'.$blog->image)}}" style="height: 100%; width: 100%; object-fit: cover;"></td></div>
                     </td>
-                    <td><a href="/admin/edit-blog/{{$blog->id}}" class="btn btn-primary">Edit</a></td>
-                    <td><a href="/admin/view-blog/{{$blog->id}}" class="btn btn-primary">Delete</button></td>
+                    <td><a href="/admin/edit-gallery/{{$blog->id}}" class="btn btn-primary">Edit</a></td>
+                    <td><a href="/admin/view-gallery/{{$blog->id}}" class="btn btn-primary">Delete</button></td>
                   </tr>
                   @endforeach
 

@@ -1,12 +1,8 @@
-<?php 
+@php
+use Illuminate\Support\Facades\DB;
 
-$conn = mysqli_connect('localhost','root','','pratik_yom_laravel_project');
-
-$sql_select = "select * from contact_us where status='1'";
-$data = mysqli_query($conn,$sql_select);
-$notification = mysqli_num_rows($data);
-
- ?>
+$notification = DB::table('contact_us')->where('status', 1)->count();
+@endphp
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,11 +31,6 @@ $notification = mysqli_num_rows($data);
   <link rel="stylesheet" href="{{asset('admin/plugins/daterangepicker/daterangepicker.css')}}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('admin/plugins/summernote/summernote-bs4.min.css')}}">
-
-   <!-- Ion Slider -->
-  <link rel="stylesheet" href="{{asset('admin/plugins/ion-rangeslider/css/ion.rangeSlider.min.css')}}">
-  <!-- bootstrap slider -->
-  <link rel="stylesheet" href="{{asset('admin/plugins/bootstrap-slider/css/bootstrap-slider.min.css')}}">
 
    <!-- Bootstrap Color Picker -->
   <link rel="stylesheet" href="{{asset('admin/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css')}}">
@@ -270,16 +261,6 @@ $notification = mysqli_num_rows($data);
 
     <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="{{asset('admin/dist/img/1.jpg')}}" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">Pratikkumar Ginoya</a>
-        </div>
-      </div>
-
       <!-- SidebarSearch Form -->
       <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
@@ -309,219 +290,26 @@ $notification = mysqli_num_rows($data);
         </ul>
 
 
-<!-- Slider -->
+        @php
+          $adminMenus = [
+            ['href' => '/admin/view-events', 'icon' => 'fas fa-calendar', 'label' => 'Events'],
+            ['href' => '/admin/view-client', 'icon' => 'fas fa-users', 'label' => 'Client'],
+            ['href' => '/admin/view-gallery', 'icon' => 'fas fa-images', 'label' => 'Gallery'],
+            ['href' => '/admin/view-thought', 'icon' => 'fas fa-comment-dots', 'label' => 'About Thoughts'],
+            ['href' => '/admin/view-photos', 'icon' => 'fas fa-camera', 'label' => 'Latest Photos'],
+            ['href' => '/admin/view-contacts', 'icon' => 'fas fa-envelope', 'label' => 'Contact Us Data'],
+          ];
+        @endphp
+
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Slider
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/admin/add-slider" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Slider</p>
-                </a>
-              </li>
-            </ul>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/admin/view-slider" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>View/Manage Slider</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-
-<!-- Services -->
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Services
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/admin/add-services" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Services</p>
-                </a>
-              </li>
-            </ul>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/admin/view-services" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>View/Manage Services</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-
-
-<!-- Client -->
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Client
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/admin/add-client" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Client</p>
-                </a>
-              </li>
-            </ul>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/admin/view-client" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>View/Manage Client</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-
-
-<!-- Blog -->
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Blog
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/admin/add-blog" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Blog</p>
-                </a>
-              </li>
-            </ul>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/admin/view-blog" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>View/Manage Blog</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-
-
-<!-- About -->
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="#" class="nav-link ">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                About
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/admin/add-thought" class="nav-link ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Your Thought</p>
-                </a>
-              </li>
-            </ul>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/admin/view-thought" class="nav-link ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>View/Manage Thoughts</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-
-
-<!-- Latest Photos -->
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item ">
-            <a href="#" class="nav-link ">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Latest Photos
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/admin/add-photos" class="nav-link ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add New Photos</p>
-                </a>
-              </li>
-            </ul>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/admin/view-photos" class="nav-link ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>View/Manage Photos</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-
-
-<!-- Contact Us -->
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item ">
-            <a href="#" class="nav-link ">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Data of Contact Us
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-           
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/admin/view-contacts" class="nav-link ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>View Contact Us Data</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+          @foreach($adminMenus as $menu)
+            <li class="nav-item">
+              <a href="{{ $menu['href'] }}" class="nav-link">
+                <i class="nav-icon {{ $menu['icon'] }}"></i>
+                <p>{{ $menu['label'] }}</p>
+              </a>
+            </li>
+          @endforeach
         </ul>
 
 

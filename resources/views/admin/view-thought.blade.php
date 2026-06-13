@@ -27,6 +27,7 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">View/Manage Thoughts</h3>
+                <a href="/admin/add-thought" class="btn btn-primary float-right">Add Thought</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">

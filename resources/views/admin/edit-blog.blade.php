@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Edit This Blog</h1>
+            <h1>Edit This Gallery</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -28,7 +28,7 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Edit This Blog</h3>
+                <h3 class="card-title">Edit This Gallery</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -37,19 +37,19 @@
                 @csrf
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Edit Title of Blog</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Title of Blog" name="title" maxlength="70" value="{{$blog->title}}" required>
+                    <label for="exampleInputEmail1">Edit Title of Gallery</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Title of Gallery" name="title" maxlength="70" value="{{$blog->title}}" required>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Edit Short Details of Blog</label>
-                    <textarea type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Short Details of Blog" name="s_details" maxlength="250" required>{{$blog->short_details}}</textarea>
+                    <label for="exampleInputPassword1">Edit Short Details of Gallery</label>
+                    <textarea type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Short Details of Gallery" name="s_details" maxlength="250" required>{{$blog->short_details}}</textarea>
                   </div>
                    <div class="form-group">
-                    <label for="exampleInputPassword1">Edit Full Details of Blog</label>
-                    <textarea rows="10" type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Full Details of Blog" name="f_details" maxlength="1500" required>{{$blog->full_details}}</textarea>
+                    <label for="exampleInputPassword1">Edit Full Details of Gallery</label>
+                    <textarea rows="10" type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Full Details of Gallery" name="f_details" maxlength="1500" required>{{$blog->full_details}}</textarea>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputFile">Add New Image of This Blog</label>
+                    <label for="exampleInputFile">Add New Image of This Gallery</label>
                     <div class="input-group">
                       <div class="custom-file">
                         <input type="file" class="custom-file-input" id="exampleInputFile" name="image">
@@ -58,7 +58,7 @@
                     </div> 
                   </div>
 
-                  <label for="exampleInputFile">Current Image of This Blog</label>
+                  <label for="exampleInputFile">Current Image of This Gallery</label>
                    <div style="width: 250px; height: 200px;">
                       <img src="{{asset('images/'.$blog->image)}}" style="height: 100%; width: 100%; object-fit: cover;">
                   </div>

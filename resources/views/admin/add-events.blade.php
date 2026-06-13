@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Edit Slider</h1>
+            <h1>Add New Event</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -28,34 +28,35 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Edit Services</h3>
+                <h3 class="card-title">Add New Event</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form method="post" enctype="multipart/form-data">
-              @csrf
-              @foreach($arr as $services)
+                @csrf
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Edit Title of Service</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Title of Service" name="title" required maxlength="40" value="{{$services->title}}">
+                    <label for="eventDate">Event Date</label>
+                    <input type="date" class="form-control" id="eventDate" name="event_date" required>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Edit Details of Service</label>
-                    <textarea rows="6" type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Some Details of Service" name="details" required maxlength="250">{{$services->details}}</textarea>
+                    <label for="eventTitle">Title of New Event</label>
+                    <input type="text" class="form-control" id="eventTitle" placeholder="Enter Title of New Event" name="title" maxlength="40" required>
                   </div>
-              @endforeach
+                  <div class="form-group">
+                    <label for="eventDetails">Details of New Event</label>
+                    <textarea rows="6" type="text" class="form-control" id="eventDetails" placeholder="Enter Details of New Event" name="details" maxlength="250"></textarea>
+                  </div>
  
                 </div>
                 <!-- /.card-body -->
            
                 <div class="card-footer">
-                  <input type="submit" class="btn btn-primary" name="edit_services" value="Submit">
+                  <input type="submit" class="btn btn-primary" name="submit_events" value="Submit">
                 </div>
               </form>
             </div>
             <!-- /.card -->
-                </form>
               </div>
               <!-- /.card-body -->
             </div>
@@ -70,7 +71,7 @@
   </div>
   <!-- /.content-wrapper -->
 
-@include('admin/footer')
+ @include('admin/footer')
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

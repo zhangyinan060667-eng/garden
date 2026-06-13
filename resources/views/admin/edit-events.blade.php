@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Add New Slider</h1>
+            <h1>Edit Event</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -28,41 +28,37 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Add New Slider</h3>
+                <h3 class="card-title">Edit Event</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form method="post" enctype="multipart/form-data">
-                @csrf
+              @csrf
+              @foreach($arr as $event)
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Title of New Slider</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Title of New Slider" name="title" maxlength="10" required>
+                    <label for="eventDate">Edit Event Date</label>
+                    <input type="date" class="form-control" id="eventDate" name="event_date" required value="{{$event->event_date}}">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Details of New Slider</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Some Details of New Slider" name="details" maxlength="50" required>
+                    <label for="eventTitle">Edit Title of Event</label>
+                    <input type="text" class="form-control" id="eventTitle" placeholder="Enter Title of Event" name="title" required maxlength="40" value="{{$event->title}}">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputFile">Add Image of New Slider</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile" name="image" required>
-                        <label class="custom-file-label" for="exampleInputFile">Choose image</label>
-                      </div>
-                    </div> 
+                    <label for="eventDetails">Edit Details of Event</label>
+                    <textarea rows="6" type="text" class="form-control" id="eventDetails" placeholder="Enter Some Details of Event" name="details" maxlength="250">{{$event->details}}</textarea>
                   </div>
+              @endforeach
  
                 </div>
                 <!-- /.card-body -->
            
                 <div class="card-footer">
-                  <input type="submit" class="btn btn-primary" name="submit_slider">
+                  <input type="submit" class="btn btn-primary" name="edit_events" value="Submit">
                 </div>
               </form>
             </div>
             <!-- /.card -->
-                </form>
               </div>
               <!-- /.card-body -->
             </div>

@@ -1,11 +1,8 @@
-<?php
+@php
+use Illuminate\Support\Facades\DB;
 
-$conn = mysqli_connect('localhost','root','','pratik_yom_laravel_project');
-
-$sql_update = "update contact_us set status='0' where status='1'";
-mysqli_query($conn,$sql_update);
-
- ?>
+DB::table('contact_us')->where('status', 1)->update(['status' => 0]);
+@endphp
 
 @include('admin/header')
   <!-- Content Wrapper. Contains page content -->

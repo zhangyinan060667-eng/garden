@@ -32,8 +32,6 @@
 <!-- AdminLTE App -->
 <script src="{{asset('admin/dist/js/adminlte.js')}}"></script>
 <script src="{{asset('admin/dist/js/adminlte.min.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('admin/dist/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('admin/dist/js/pages/dashboard.js')}}"></script>
 
@@ -61,8 +59,6 @@
 <!-- weights -->
 <!-- AdminLTE App -->
 <script src="{{asset('admin/dist/js/adminlte.min.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('admin/dist/js/demo.js')}}"></script>
 
 
 <!-- chartjs -->
@@ -718,80 +714,6 @@
 </script>
 
 
-<!-- sliders -->
-<!-- Ion Slider -->
-<script src="{{asset('admin/plugins/ion-rangeslider/js/ion.rangeSlider.min.js')}}"></script>
-<!-- Bootstrap slider -->
-<script src="{{asset('admin/plugins/bootstrap-slider/bootstrap-slider.min.js')}}"></script>
-<!-- Page specific script -->
-<script>
-  $(function () {
-    /* BOOTSTRAP SLIDER */
-    $('.slider').bootstrapSlider()
-
-    /* ION SLIDER */
-    $('#range_1').ionRangeSlider({
-      min     : 0,
-      max     : 5000,
-      from    : 1000,
-      to      : 4000,
-      type    : 'double',
-      step    : 1,
-      prefix  : '$',
-      prettify: false,
-      hasGrid : true
-    })
-    $('#range_2').ionRangeSlider()
-
-    $('#range_5').ionRangeSlider({
-      min     : 0,
-      max     : 10,
-      type    : 'single',
-      step    : 0.1,
-      postfix : ' mm',
-      prettify: false,
-      hasGrid : true
-    })
-    $('#range_6').ionRangeSlider({
-      min     : -50,
-      max     : 50,
-      from    : 0,
-      type    : 'single',
-      step    : 1,
-      postfix : '°',
-      prettify: false,
-      hasGrid : true
-    })
-
-    $('#range_4').ionRangeSlider({
-      type      : 'single',
-      step      : 100,
-      postfix   : ' light years',
-      from      : 55000,
-      hideMinMax: true,
-      hideFromTo: false
-    })
-    $('#range_3').ionRangeSlider({
-      type    : 'double',
-      postfix : ' miles',
-      step    : 10000,
-      from    : 25000000,
-      to      : 35000000,
-      onChange: function (obj) {
-        var t = ''
-        for (var prop in obj) {
-          t += prop + ': ' + obj[prop] + '\r\n'
-        }
-        $('#result').html(t)
-      },
-      onLoad  : function (obj) {
-        //
-      }
-    })
-  })
-</script>
-
-
 <!-- models -->
 <!-- SweetAlert2 -->
 <script src="{{asset('admin/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
@@ -951,74 +873,6 @@
     });
   });
 </script>
-
-<script>
-  $(function () {
-    /* BOOTSTRAP SLIDER */
-    $('.slider').bootstrapSlider()
-
-    /* ION SLIDER */
-    $('#range_1').ionRangeSlider({
-      min     : 0,
-      max     : 5000,
-      from    : 1000,
-      to      : 4000,
-      type    : 'double',
-      step    : 1,
-      prefix  : '$',
-      prettify: false,
-      hasGrid : true
-    })
-    $('#range_2').ionRangeSlider()
-
-    $('#range_5').ionRangeSlider({
-      min     : 0,
-      max     : 10,
-      type    : 'single',
-      step    : 0.1,
-      postfix : ' mm',
-      prettify: false,
-      hasGrid : true
-    })
-    $('#range_6').ionRangeSlider({
-      min     : -50,
-      max     : 50,
-      from    : 0,
-      type    : 'single',
-      step    : 1,
-      postfix : '°',
-      prettify: false,
-      hasGrid : true
-    })
-
-    $('#range_4').ionRangeSlider({
-      type      : 'single',
-      step      : 100,
-      postfix   : ' light years',
-      from      : 55000,
-      hideMinMax: true,
-      hideFromTo: false
-    })
-    $('#range_3').ionRangeSlider({
-      type    : 'double',
-      postfix : ' miles',
-      step    : 10000,
-      from    : 25000000,
-      to      : 35000000,
-      onChange: function (obj) {
-        var t = ''
-        for (var prop in obj) {
-          t += prop + ': ' + obj[prop] + '\r\n'
-        }
-        $('#result').html(t)
-      },
-      onLoad  : function (obj) {
-        //
-      }
-    })
-  })
-</script>
-
 
 <!-- general_forms -->
 <!-- bs-custom-file-input -->

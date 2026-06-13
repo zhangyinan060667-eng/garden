@@ -1,6 +1,6 @@
 @include('header')
 
-				<section class="page-heading wow fadeIn" data-wow-duration="1.5s" style="background-image: url(/files/images/01-heading.jpg)">
+				<section class="page-heading wow fadeIn" data-wow-duration="1.5s">
 					<div class="container">
 						<div class="page-name">
 							<h1>Single Post</h1>
@@ -37,7 +37,7 @@
 										<div>
 											@if($prev != null)
 											<div class="prev-btn col-md-6 col-sm-6 col-xs-6">
-												<a href="/blog-single/{{$prev->id}}?search_text={{$search_text}}"><i class="fa fa-angle-left"></i>Previous</a>
+												<a href="/gallery-single/{{$prev->id}}?search_text={{$search_text}}"><i class="fa fa-angle-left"></i>Previous</a>
 											</div>
 											@else
 											<div class="prev-btn col-md-6 col-sm-6 col-xs-6" style="margin-bottom:100px;"></div>
@@ -46,7 +46,7 @@
 										<div>
 											@if($next != null)
 											<div class="next-btn col-md-6 col-sm-6 col-xs-6">
-												<a href="/blog-single/{{$next->id}}?search_text={{$search_text}}">Next<i class="fa fa-angle-right"></i></a>
+												<a href="/gallery-single/{{$next->id}}?search_text={{$search_text}}">Next<i class="fa fa-angle-right"></i></a>
 											</div>
 											@else
 											<div class="next-btn col-md-6 col-sm-6 col-xs-6" style="margin-right: 100px;"></div>
@@ -56,7 +56,7 @@
 										<div>
 											@if($prev != null)
 											<div class="prev-btn col-md-6 col-sm-6 col-xs-6">
-												<a href="/blog-single/{{$prev->id}}"><i class="fa fa-angle-left"></i>Previous</a>
+												<a href="/gallery-single/{{$prev->id}}"><i class="fa fa-angle-left"></i>Previous</a>
 											</div>
 											@else
 											<div class="prev-btn col-md-6 col-sm-6 col-xs-6" style="margin-bottom:100px;"></div>
@@ -65,7 +65,7 @@
 										<div>
 											@if($next != null)
 											<div class="next-btn col-md-6 col-sm-6 col-xs-6">
-												<a href="/blog-single/{{$next->id}}">Next<i class="fa fa-angle-right"></i></a>
+												<a href="/gallery-single/{{$next->id}}">Next<i class="fa fa-angle-right"></i></a>
 											</div>
 											@else
 											<div class="next-btn col-md-6 col-sm-6 col-xs-6" style="margin-right: 100px;"></div>
@@ -75,7 +75,7 @@
 							</div>
 
 								<div class="blog-comments">
-									<h2> All Comments of this blog</h2>
+									<h2> All Comments of this gallery</h2>
 									<ul class="coments-content">
 
 									@foreach($arr2 as $comment)
@@ -122,7 +122,7 @@
 										<div class="submit-coment col-md-12">
 											<div class="btn-black">
 												<input class="btn-black a" class="submit-coment col-md-12" type="submit" name="submit_comment" value="Submit now">
-												<!-- <a href="blog-single.php" name="submit_comment">Submit now</a> -->
+												<!-- <a href="gallery-single.php" name="submit_comment">Submit now</a> -->
 											</div>
 										</div>
 									</form>		
@@ -130,7 +130,7 @@
 							</div>
 							<div class="col-md-4">
 								<div class="widget-item">
-									<h2>Search about the Blogs...</h2>
+									<h2>Search about the Gallery...</h2>
 									<div class="dec-line"></div>
 									<form method="get" id="blog-search" class="blog-search">
 										@csrf

@@ -42,7 +42,7 @@ public function blog_single_id(Request $req,$id)
 <div>
                                             @if($prev != null)
                                             <div class="prev-btn col-md-6 col-sm-6 col-xs-6">
-                                                <a href="/blog-single/{{$prev->id}}"><i class="fa fa-angle-left"></i>Previous</a>
+                                                <a href="/gallery-single/{{$prev->id}}"><i class="fa fa-angle-left"></i>Previous</a>
                                             </div>
                                             @else
                                             <div class="prev-btn col-md-6 col-sm-6 col-xs-6" style="margin-bottom:100px;"></div>
@@ -51,7 +51,7 @@ public function blog_single_id(Request $req,$id)
                                         <div>
                                             @if($next != null)
                                             <div class="next-btn col-md-6 col-sm-6 col-xs-6">
-                                                <a href="/blog-single/{{$next->id}}">Next<i class="fa fa-angle-right"></i></a>
+                                                <a href="/gallery-single/{{$next->id}}">Next<i class="fa fa-angle-right"></i></a>
                                             </div>
                                             @else
                                             <div class="next-btn col-md-6 col-sm-6 col-xs-6" style="margin-right: 100px;"></div>

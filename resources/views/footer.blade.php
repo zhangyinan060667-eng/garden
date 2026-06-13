@@ -5,10 +5,10 @@
         <div class="col-md-3">
           <h1>
             <a href="index.php">
-             YOM
+             Gardening Club
             </a>
           </h1>
-          <p>©2015 Yom. All rights reserved.</p>
+          <p>©2015 Gardening Club. All rights reserved.</p>
           <div class="spacing"></div>
           <ul class="socials">
             <li>
@@ -41,9 +41,9 @@
             <ul>
               <li><a href="#">Home</a></li>
               <li><a href="#">View some works here</a></li>
-              <li><a href="#">Follow our blog</a></li>
+              <li><a href="#">Follow our gallery</a></li>
               <li><a href="#">Contact us</a></li>
-              <li><a href="#">Our services</a></li>
+              <li><a href="/events">Our events</a></li>
             </ul>
           </div>
           <div class="spacing"></div>
@@ -91,17 +91,11 @@
 							<li><a href="index.php">Home</a></li>
 							<li class="menu-item-has-children"><a href="#">Pages</a>
 								<ul class="sub-menu">
-									<li><a href="services.php">Services</a></li>
+									<li><a href="/events">Events</a></li>
 									<li><a href="clients.php">Clients</a></li>
 								</ul>
 							</li>
-							<li class="menu-item-has-children"><a href="#">Blog</a>
-								<ul class="sub-menu">
-									<li><a href="blog.php">Blog Classic</a></li>
-									<li><a href="blog-grid.php">Blog Grid</a></li>
-									<li><a href="blog-single.php">Single Post</a></li>
-								</ul>
-							</li>
+							<li><a href="/gallery">Gallery</a></li>
 							<li><a href="about.php">About</a></li>
 							<li class="menu-item-has-children"><a href="#">Works</a>
 								<ul class="sub-menu">

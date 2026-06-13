@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-	<title>YOM- Multipurpose HTML Theme</title>
+	<title>Gardening Club</title>
 
 
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,800' rel='stylesheet' type='text/css'>
@@ -34,7 +34,7 @@
 						<div class="inner-header clearfix">
 							<div class="logo">
 								<a href="/
-								">YOM</a>
+								">Gardening Club</a>
 							</div>
 							<div class="header-right-toggle pull-right hidden-md hidden-lg">
 								<a href="javascript:void(0)" class="side-menu-button"><i class="fa fa-bars"></i></a>
@@ -44,16 +44,11 @@
 									<li><a href="/">Home</a></li>
 									<li><a href="#" class="has-submenu">Pages</a>
 										<ul class="sub-menu">
-											<li><a href="/services">Services</a></li>
+											<li><a href="/events">Events</a></li>
 											<li><a href="/clients">Clients</a></li>
 										</ul>
 									</li>
-									<li><a href="#" class="has-submenu">Blog</a>
-										<ul class="sub-menu">
-											<li><a href="/blog">Blog Classic</a></li>
-											<li><a href="/blog-single">Single Post</a></li>
-										</ul>
-									</li>
+									<li><a href="/gallery">Gallery</a></li>
 									<li><a href="/about">About</a></li>
 									<li><a href="#" class="has-submenu">Work</a>
 										<ul class="sub-menu">
