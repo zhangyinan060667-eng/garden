@@ -1,5 +1,5 @@
 {
-    "name": "gardeningclub",
+    "name": "gardening/club",
     "type": "project",
     "description": "The Laravel Framework.",
     "keywords": ["framework", "laravel"],
@@ -7,7 +7,7 @@
     "require": {
         "php": "^8.0.30",
         "guzzlehttp/guzzle": "^7.2",
-        "laravel/framework": "^9.19",
+        "laravel/framework": "^9.52",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7"
     },
@@ -58,6 +58,11 @@
         "sort-packages": true,
         "allow-plugins": {
             "pestphp/pest-plugin": true
+        },
+        "policy": {
+            "advisories": {
+                "block": false
+            }
         }
     },
     "minimum-stability": "stable",
