@@ -1,5 +1,15 @@
 [variables]
 NIXPACKS_PHP_ROOT_DIR = "public"
+APP_ENV = "production"
+APP_DEBUG = "false"
+APP_URL = "https://garden-production-1bb1.up.railway.app"
+DB_CONNECTION = "sqlite"
+LOG_CHANNEL = "errorlog"
+SESSION_DRIVER = "cookie"
+CACHE_DRIVER = "array"
 
 [phases.setup]
 nixPkgs = ["php83", "php83Extensions.pdo_sqlite"]
+
+[start]
+cmd = "chmod +x scripts/railway-start.sh && ./scripts/railway-start.sh"

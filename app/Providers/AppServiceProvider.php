@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,20 +25,36 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (config('database.default') === 'sqlite') {
-            $database = config('database.connections.sqlite.database');
+        if (config('database.default') !== 'sqlite') {
+            return;
+        }
 
-            if ($database) {
-                $directory = dirname($database);
+        $database = config('database.connections.sqlite.database');
 
-                if (! is_dir($directory)) {
-                    mkdir($directory, 0755, true);
-                }
+        if (! $database) {
+            return;
+        }
 
-                if (! file_exists($database)) {
-                    touch($database);
-                }
+        $directory = dirname($database);
+
+        if (! is_dir($directory)) {
+            mkdir($directory, 0775, true);
+        }
+
+        if (! file_exists($database)) {
+            touch($database);
+        }
+
+        @chmod($directory, 0775);
+        @chmod($database, 0664);
+
+        try {
+            if (! Schema::hasTable('events')) {
+                Artisan::call('migrate', ['--force' => true]);
+                Artisan::call('db:seed', ['--force' => true]);
             }
+        } catch (\Throwable $e) {
+            error_log('Database bootstrap failed: '.$e->getMessage());
         }
     }
 }
