@@ -7,6 +7,10 @@ Route::get('/up', function () {
     return response('OK', 200);
 });
 
+Route::get('/ping', function () {
+    return response('pong', 200);
+});
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

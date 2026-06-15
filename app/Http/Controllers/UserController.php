@@ -11,7 +11,7 @@ use App\Models\blog;
 use App\Models\photos;
 use App\Models\blog_comment;
 use App\Models\contact_us;
-use Redirect;
+use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
@@ -422,12 +422,25 @@ class UserController extends Controller
     // functions for Frond-end pannel
     public function index(Request $req)
     {
-        $events_i = events::orderBy('event_date','desc')->limit(4)->get();
-        $photos_i = photos::all();
-        $about_i = about::all();
-        $blog_i = blog::all();
+        try {
+            $events_i = events::orderBy('event_date', 'desc')->limit(4)->get();
+            $photos_i = photos::all();
+            $about_i = about::all();
+            $blog_i = blog::all();
+        } catch (\Throwable $e) {
+            error_log('Homepage database error: '.$e->getMessage());
+            $events_i = collect();
+            $photos_i = collect();
+            $about_i = collect();
+            $blog_i = collect();
+        }
 
-        return view('index',['events_i'=>$events_i,'photos_i'=>$photos_i,'about_i'=>$about_i,'blog_i'=>$blog_i]);
+        return view('index', [
+            'events_i' => $events_i,
+            'photos_i' => $photos_i,
+            'about_i' => $about_i,
+            'blog_i' => $blog_i,
+        ]);
     }
 
     public function events(Request $req)
