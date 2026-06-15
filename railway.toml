@@ -4,5 +4,13 @@ buildCommand = "chmod +x scripts/railway-build.sh && ./scripts/railway-build.sh"
 
 [deploy]
 startCommand = "chmod +x scripts/railway-start.sh && ./scripts/railway-start.sh"
-healthcheckPath = "/"
+healthcheckPath = "/up"
 restartPolicyType = "ON_FAILURE"
+
+[variables]
+APP_ENV = "production"
+APP_DEBUG = "false"
+APP_URL = "https://garden-production-1bb1.up.railway.app"
+DB_CONNECTION = "sqlite"
+LOG_CHANNEL = "errorlog"
+NIXPACKS_PHP_ROOT_DIR = "public"

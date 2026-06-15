@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
+Route::get('/up', function () {
+    return response('OK', 200);
+});
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
