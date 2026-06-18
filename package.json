@@ -2,7 +2,7 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "echo \"No Vite build needed - site uses static assets in public/files\""
     },
     "devDependencies": {
         "axios": "^1.1.2",

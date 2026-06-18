@@ -1,9 +1,11 @@
 [build]
 builder = "DOCKERFILE"
 dockerfilePath = "Dockerfile"
+watchPatterns = ["**/*.php", "composer.json", "composer.lock", "Dockerfile", "scripts/**"]
 
 [deploy]
 restartPolicyType = "ON_FAILURE"
+startCommand = "bash scripts/railway-start.sh"
 
 [variables]
 APP_ENV = "production"
