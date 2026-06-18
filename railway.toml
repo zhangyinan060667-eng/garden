@@ -3,7 +3,6 @@ builder = "DOCKERFILE"
 dockerfilePath = "Dockerfile"
 
 [deploy]
-healthcheckPath = "/up"
 restartPolicyType = "ON_FAILURE"
 
 [variables]
@@ -11,7 +10,6 @@ APP_ENV = "production"
 APP_DEBUG = "false"
 APP_URL = "https://garden-production-1bb1.up.railway.app"
 DB_CONNECTION = "sqlite"
-DB_DATABASE = "/app/database/database.sqlite"
 LOG_CHANNEL = "errorlog"
 SESSION_DRIVER = "cookie"
 CACHE_DRIVER = "array"

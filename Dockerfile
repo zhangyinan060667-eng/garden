@@ -16,18 +16,12 @@ RUN composer install --no-dev --optimize-autoloader --no-interaction --no-script
 
 COPY . .
 
-RUN composer dump-autoload --optimize \
+RUN if [ ! -f .env ]; then cp .env.example .env; fi \
+    && php artisan key:generate --force --no-interaction \
+    && composer dump-autoload --optimize \
     && mkdir -p storage/framework/sessions storage/framework/views storage/framework/cache/data storage/logs bootstrap/cache database \
     && touch database/database.sqlite \
     && chmod -R 777 storage bootstrap/cache database
-
-ENV APP_ENV=production \
-    APP_DEBUG=false \
-    LOG_CHANNEL=errorlog \
-    SESSION_DRIVER=cookie \
-    CACHE_DRIVER=array \
-    DB_CONNECTION=sqlite \
-    DB_DATABASE=/app/database/database.sqlite
 
 EXPOSE 8080
 
